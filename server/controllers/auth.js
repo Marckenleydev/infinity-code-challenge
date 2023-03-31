@@ -43,9 +43,9 @@ export const login =async(req,res,next)=>{
             user.password
         );
         if(!isPassword) return res.status(501).json("Wrong password")
-
+  const JWT ="petitphat1"
         const token = jwt.sign(
-            {id:user._id, isAdmin: user.isAdmin}, process.env.JWT
+            {id:user._id, isAdmin: user.isAdmin}, JWT
         )
  
         const { password, isAdmin, ...otherDetails } = user._doc;
