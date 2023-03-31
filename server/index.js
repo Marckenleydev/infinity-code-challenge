@@ -17,7 +17,6 @@ dotenv.config()
 mongoose.set('strictQuery', true);
 
 // Database link connection
-const MONGO_URL="mongodb+srv://root:helloworld@firstnodeapp.ricbp.mongodb.net/Infinty-challenge?retryWrites=true&w=majority"
 
 
 const PORT =process.env.PORT || 8001
@@ -39,7 +38,7 @@ app.use("/api/course",courseRoute)
 
 // connect to mongoDB Database
 
-mongoose.connect(MONGO_URL).then(()=>{
+mongoose.connect(process.env.MONGO_URL).then(()=>{
     console.log("mongoDb is successfull connected");
 
     app.listen(PORT ,console.log(`server is running at port ${PORT}`))
